@@ -1,0 +1,11 @@
+ Volume in drive C is Windows
+ Volume Serial Number is 0A8B-2331
+
+ Directory of C:\Projects\LatexProjects\DifferentialEquations\scripts
+
+08/31/2019  10:17 AM    <DIR>          .
+08/31/2019  10:17 AM    <DIR>          ..
+08/31/2019  10:07 AM               333 mksection.bat
+08/31/2019  10:17 AM                 0 test.txt
+               2 File(s)            333 bytes
+               2 Dir(s)  46,364,778,496 bytes free

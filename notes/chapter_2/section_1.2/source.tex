@@ -1,0 +1,43 @@
+\section{Solutions of Some Differential Equations}
+    Consider a differential equation of the form
+    \begin{equation*}
+        \frac{dy}{dt} = ay - b
+    \end{equation*}
+    Solution:
+    \newline
+    First, we perform some basic operations:
+    \begin{equation*}
+        \frac{dy / dt}{ay - b} = 1
+    \end{equation*}
+    \begin{equation*}
+        \frac{dy / dt}{y - b / a} = a
+    \end{equation*}
+    Then by the chain rule we get:
+    \begin{equation*}
+        \frac{d}{dt} \ln |y - b / a| = a
+    \end{equation*}
+    Then we integrate with respect to t
+    \begin{equation*}
+        \int \frac{d}{dt} \ln |y - b / a| dt = \int a dt
+    \end{equation*}
+    \begin{equation*}
+        ln |y - b / a| = at + C
+    \end{equation*}
+    Then through some basic manipulation
+    \begin{equation*}
+        |y - b / a| = e^{at + C} = e^Ce^{at}
+    \end{equation*}
+    \begin{equation*}
+        y - b / a = \pm e^Ce^{at}
+    \end{equation*}
+    Let $c = \pm e^C$
+    \begin{equation*}
+        y - b / a = ce^{at}
+    \end{equation*}
+    \begin{equation*}
+        y = b / a + ce^{at}
+    \end{equation*}
+    So, $y = b / a + ce^{at}$ is the \textbf{general solution} to $\frac{dy}{dt} = ay - b$. If you have an initial condition $y_o$, that is when $t = 0$, $y = y_o$, we can write $c$ in terms of $y_o$. If we let $c = y_o - b / a$, then when $t = 0$, $y = y_o$.
+    \begin{equation*}
+        y = b / a + (y_o - b / a)e^{at}
+    \end{equation*}

@@ -3,4 +3,62 @@
     \begin{equation*}
         \frac{dy}{dt} + p(t)y = g(t) \text{ or } P(t)\frac{dy}{dt} + Q(t)y = G(t)
     \end{equation*}
-    
+    Most equations cannot be solved with simple integration, so we can use an \textbf{integrating factor} $\mu(t)$. This works for any first order linear equation. 
+    \begin{equation*}
+        \frac{dy}{dt} + ay = g(t)
+    \end{equation*}
+    Now, we need to find a a $\mu(t)$ so that
+    \begin{equation*}
+        \frac{d\mu}{dt} = a\mu
+    \end{equation*}
+    which yields $\mu(t) = e^{at}$. Multiplying the original equation by $\mu(t)$
+    \begin{equation*}
+        e^{at}\frac{dy}{dt} + ae^{at}y = e^{at}g(t)
+    \end{equation*}
+    or
+    \begin{equation*}
+        \frac{d}{dt}(e^{at}y) = e^{at}g(t)
+    \end{equation*}
+    By integrating both sides,
+    \begin{equation*}
+        e^{at}y = \int e^{at}g(t)dt + c
+    \end{equation*}
+    \begin{equation*}
+        y = e^{-at}\int_{t_0}^te^{as}g(s)ds + ce^{-at}
+    \end{equation*}
+    Now, let's extend this to the general first order linear equation:
+    \begin{equation*}
+        \frac{dy}{dt} + p(t)y = g(t)
+    \end{equation*}
+    Multiply by $\mu(t)$
+    \begin{equation*}
+        \mu(t)\frac{dy}{dt} + p(t)\mu(t)y = \mu(t)g(t)
+    \end{equation*}
+    We know that $\frac{d(\mu(t)y)}{dt} = \mu(t)\frac{dy}{dt} + p(t)\mu(t)y$, if
+    \begin{equation*}
+        \frac{d\mu(t)}{dt} = p(t)\mu(t)
+    \end{equation*}
+    if $p(t) > 0$
+    \begin{equation*}
+        \frac{d\mu(t) / dt}{\mu(t)} = p(t)
+    \end{equation*}
+    \begin{equation*}
+        \ln \mu(t) = \int p(t) dt + k
+    \end{equation*}
+    By choosing $k$ to be 0, we obtain the simplest possible $\mu(t)$
+    \begin{equation*}
+        \mu(t) = \exp \int p(t) dt
+    \end{equation*}
+    Now,
+    \begin{equation*}
+        \frac{d}{dt}[\mu(t)y] = \mu(t)\frac{dy}{dt} + p(t)\mu(t)y = \mu(t)g(t)
+    \end{equation*}
+    By integrating,
+    \begin{equation*}
+        \mu(t)y = \int \mu(t)g(t)dt + c
+    \end{equation*}
+    \begin{equation*}
+        y = \frac{1}{\mu(t)}[\int_{t_0}^t \mu(t)g(s)ds + c]
+    \end{equation*}
+        
+        

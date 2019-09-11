@@ -1,43 +1,59 @@
 \section{Solutions of Some Differential Equations}
-    Consider a differential equation of the form
+    If a differential equation $dy/dx = f(x, y)$ can be written as 
     \begin{equation*}
-        \frac{dy}{dt} = ay - b
+        M(x) + N(y)\frac{dy}{dx} = 0
     \end{equation*}
-    Solution:
-    \newline
-    First, we perform some basic operations:
+    then it is said to be \textbf{separable} since it can be written as $$M(x)dx + N(y)dy = 0$$ and integrated.
+    \newline \indent
+    Let
     \begin{equation*}
-        \frac{dy / dt}{ay - b} = 1
+        H'_1(x) = M(x) \qquad H'_2(y) = M(y)
+    \end{equation*}
+    so then the previous equation becomes
+    \begin{equation*}
+        H'_1(x) + H'_2(y)\frac{dy}{dx} = 0
+    \end{equation*}
+    By the chain rule:
+    \begin{equation*}
+        H'_2(y)\frac{dy}{dx} = \frac{d}{dy}H_2(y)\frac{dy}{dx} = \frac{d}{dx}H_2(y)
+    \end{equation*}
+    which gives us
+    \begin{equation*}
+        \frac{d}{dx}[H_1(x) + H_2(y)] = 0
+    \end{equation*}
+    By integrating, we get
+    \begin{equation*}
+        H_1(x) + H_2(y) = c
+    \end{equation*}
+    Any differentiable function $y = \phi(x)$ that satisfies $H_1(x) + H_2(y) = c$ is a solution of the original differentiable equation. The differential equation and the initial condition $y(x_0) = y_0$ forms an initial value problem. We can use the initial value to find the correct c:
+    \begin{equation*}
+        c = H_1(x_0) + H_2(y_0)
+    \end{equation*}
+    so
+    \begin{equation*}
+        c = H_1(x_0) + H_2(y_0) = H_1(x) + H_2(y)
     \end{equation*}
     \begin{equation*}
-        \frac{dy / dt}{y - b / a} = a
-    \end{equation*}
-    Then by the chain rule we get:
-    \begin{equation*}
-        \frac{d}{dt} \ln |y - b / a| = a
-    \end{equation*}
-    Then we integrate with respect to t
-    \begin{equation*}
-        \int \frac{d}{dt} \ln |y - b / a| dt = \int a dt
+        (H_1(x) - H_1(x_0)) + (H_2(y) - H_2(y_0)) = 0
     \end{equation*}
     \begin{equation*}
-        ln |y - b / a| = at + C
+        \int_{x_0}^x M(s) ds + \int_{y_0}^y N(s) ds = 0
     \end{equation*}
-    Then through some basic manipulation
+    since 
     \begin{equation*}
-        |y - b / a| = e^{at + C} = e^Ce^{at}
+        H_1(x) - H_1(x_0) = \int_{x_0}^x M(s) ds \qquad H_2(y) - H_2(y_0) = \int_{y_0}^y N(s) ds
     \end{equation*}
+    \indent
+    \textit{Note 1:} Sometimes the solution to $$\frac{dy}{dx} = f(x, y)$$ has a constant solution $y = y_0$, which occurs when $f(x, y_0) = 0$ for all $x$ and for $y_0$. For example,
     \begin{equation*}
-        y - b / a = \pm e^Ce^{at}
+        \frac{dy}{dx} = \frac{(y - 3)\cos x}{1 + 2y^2}
     \end{equation*}
-    Let $c = \pm e^C$
+    has a solution $y = 3$.
+    \newline \indent
+    \textit{Note 2:} Sometimes if a function is non-linear it helps to regard both $x$ and $y$ as functions of a third variable $t$.
     \begin{equation*}
-        y - b / a = ce^{at}
+        \frac{dy}{dt} = \frac{dy/dt}{dx/dt}
     \end{equation*}
-    \begin{equation*}
-        y = b / a + ce^{at}
-    \end{equation*}
-    So, $y = b / a + ce^{at}$ is the \textbf{general solution} to $\frac{dy}{dt} = ay - b$. If you have an initial condition $y_o$, that is when $t = 0$, $y = y_o$, we can write $c$ in terms of $y_o$. If we let $c = y_o - b / a$, then when $t = 0$, $y = y_o$.
-    \begin{equation*}
-        y = b / a + (y_o - b / a)e^{at}
-    \end{equation*}
+    \indent
+    \textit{Note 3:} Sometimes it is not easy to solve explicitly for $y$ as a function of $x$. In these cases, it is better to leave the solution in implicit form.
+    

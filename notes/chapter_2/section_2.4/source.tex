@@ -1,12 +1,54 @@
-\section{Differences Between Linear and Non-Linear Equations}
-    % \begin{theorem}
-    %     If the functions $p$ and $g$ are continuous on an open interval $I:\alpha < t < \beta$ containing the point $t = t_0$, then there exists a unique function $y = \phi(t)$ that satisfies the differential equation
-    %     \begin{equation*}
-    %         y' + p(t)y = g(t)
-    %     \end{equation*}
-         
-    % \end{theorem}
-    \begin{theorem} 
-        There is no rational number whose square is 2.
+\section{Differences Between Linear and Nonlinear Equations}
+    \begin{theorem}
+        If the functions $p$ and $g$ are continuous on an open interval $I:\alpha < t < \beta$ containing the point $t = t_0$, then there exists a unique function $y = \phi(t)$ that satisfies the differential equation
+        \begin{equation*}
+            y' + p(t)y = g(t)
+        \end{equation*}
+        for each $t \in I$, and that also satisfies the initial condition
+        \begin{equation*}
+            y(t_0) = y_0
+        \end{equation*}
+        where $y_0$ is an arbitrary prescribed initial value.
     \end{theorem}
-    
+    \begin{proof}
+        In section 2.1, we showed that a general solution to an equation of this form is
+        \begin{equation*}
+            y = \frac{1}{\mu(t)}[\int_{t_0}^t \mu(s)g(s)ds + c]
+        \end{equation*}
+        where $\mu(t) = \exp \int_{t_0}^t p(s) ds$. To satisfy the initial condition, we choose $c = y_0$. So,
+        \begin{equation*}
+            y = \frac{1}{\mu(t)}[\int_{t_0}^t \mu(s)g(s)ds + y_0]
+        \end{equation*}
+        $y$ is continuous since $\frac{1}{\mu(t)}$ is continuous ($\mu(t)$ is never 0), and the integral of something is differential and hence continuous.
+    \end{proof}
+    \begin{theorem}
+        Let the functions $f$ and $\partial f / \partial y$ be continuous in some rectangle $\alpha < t < \beta$, $\gamma < y < \delta$ containing the point $(t_0, y_0)$. Then, in some interval $t_0 - h < t < t_0 + h$ contained in $\alpha < t < \beta$, there is a unique solution $y = \phi(t)$ of the intial value problem
+        \begin{equation*}
+            y' = f(t, y), \qquad y(t_0) = y_0
+        \end{equation*}
+    \end{theorem}
+    Theorem 2.4.2 is the same as Theorem 2.4.1 when 
+    \begin{equation*}
+        f(t, y) = -p(t)y + g(t) \; \text{ and } \; \partial f(t, y) / \partial y = -p(t)
+    \end{equation*}
+    so the continuity of $f$ and $\partial f / \partial y$ is the same as the continuity of $p$ and $g$.
+    \newline \indent
+    Both these theorems show the existence and uniqueness of a solution to the initial value problem. Any solution to a first order differential equation cannot intersect another since otherwise the initial value problem with initial value at that point would have multiple solutions.
+    \newline
+    \textbf{Interval of Definition. } By Theorem 2.4.1, discontinuities in the solution of 
+    \begin{equation*}
+        y' + p(t)y = g(t)
+    \end{equation*}
+    with the initial condition $y(t_0) = y_0$ can only exist where there is a discontinuity in either $p$ or $q$.
+    \newline \indent 
+    For a nonlinear initial value problem, the interval is hard to determine since it must contain $[t, \phi(t)]$ and $\phi(t)$ is not known.
+    \newline
+    \textbf{General Solution.} First order linear equations have a general solution containing one arbitrary constant. This is not really true for nonlinear differential equations.
+    \newline
+    \textbf{Implicit Solution. } First order linear equations have an explicit formula for the solution for $y = \phi(t)$. Nonlinear equations do not, and the best you can do is find
+    \begin{equation*}
+        F(t, y) = 0
+    \end{equation*}
+    involving $t$ and $y$ that satisfy $y = \phi(t)$. Sometimes you can explicitly solve for the solution, but sometimes you must use numeric approximations with an implicit solution.
+    \newline
+    \textbf{Graphical or Numerical Construction of Integral Curves.} Sometimes when you cannot find the solution analytically, you can use a computer or a graph.

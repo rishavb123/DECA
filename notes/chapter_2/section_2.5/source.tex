@@ -1,2 +1,40 @@
 \section{Autonomous Equations and Population Dynamics}
-    Test
+    Autonomous equations are those of the form
+    \begin{equation*}
+        dy/dt = f(y)
+    \end{equation*}
+    This form of equation is separable.
+    \newline
+    \textbf{Exponential Growth.} Exponential growth has an equation of the form 
+    \begin{equation*}
+        dy/dt = ry
+    \end{equation*}
+    where the constant of proportionality $r$ is called the \textbf{rate of growth or decline}. Solving this with the initial condition $$y(0) = y_0$$ we obtain $$y = y_0e^{rt}$$
+    For many populations this equation holds true to a certain extent but this is not sustainable since the population would grow rapidly.
+    \newline
+    \textbf{Logistic Growth.} Since the growth rate actually depending on the population, we replace the constant $r$ with $h(y)$. So, 
+    \begin{equation*}
+        dy/dt = h(y)y
+    \end{equation*}
+    The Verhulst equation or the \textbf{logistic equation} is of the form
+    \begin{equation*}
+        dy/dt = (r-ay)y
+    \end{equation*}
+    which is the same as the last equation with $h(y) = (r - ay)$ so that $h(y) \approx r$ when y is small and it decreases as y increases. The logistic equation if often written as 
+    \begin{equation*}
+        \frac{dy}{dt} = r(1 - \frac{y}{K})y
+    \end{equation*}
+    where $K = r/a$. $r$ is called the \textbf{intrinsic growth rate}, the growth rate in the absence of limiting factors. 
+    \newline \indent
+    The constant solutions, or \textbf{equilibrium solutions}, occur when
+    \begin{equation*}
+        \frac{dy}{dt} = r(1 - \frac{y}{K})y = 0
+    \end{equation*}
+    or at $y = 0$ and $y = K$. These are also called \textbf{critical points}. 
+    \newline \indent
+    Other solutions for this equation always asymptotically approach $K$ as shown. 
+    \begin{center}
+        \includegraphics[width=200pt]{logistic_solutions.jpg}
+    \end{center}
+        
+    

@@ -36,5 +36,32 @@
     \begin{center}
         \includegraphics[width=200pt]{logistic_solutions.jpg}
     \end{center}
-        
+    $K$ is often referred to as the \textbf{saturation level}, or the \textbf{environmental carrying capacity}, for a given species.
+    \newline \indent
+    Sometimes this qualitative knowledge of the solution is enough, but to solve it, we can rewrite the equation as
+    \begin{equation*}
+        \frac{dy}{(1 - y/K)y} = r \; dt
+    \end{equation*}
+    where $y \neq 0$ and $y \neq K$. Using a partial fraction expansion, we have
+    \begin{equation*}
+        (\frac{1}{y} + \frac{1/K}{1-y/K})dy = r \; dt
+    \end{equation*}
+    By integration,
+    \begin{equation*}
+        \ln |y| - \ln |1 - \frac{y}{K}| = rt + c
+    \end{equation*}
+    since if $0 < y_0 < K$ then $y$ will remain in this interval, we can remove the absolute values. Then by taking the exponential of both sides,
+    \begin{equation*}
+        \frac{y}{1-(y/K)} = Ce^{rt}
+    \end{equation*}
+    where $C = e^c$. $C = y_0/[1-(y_0/K)]$ to satisfy $y(0) = y_0$.
+    \begin{equation*}
+        y = \frac{y_0K}{y_0 + (K - y_0)e^{-rt}}
+    \end{equation*}
+    We notice that 
+    \begin{equation*}
+        \lim_{t \rightarrow \infty} y(t) = K
+    \end{equation*}
+    hence $y = K$ is an \textbf{asymptotically stable solution}, and $y = 0$ is an \textbf{unstable equilibrium solution}.
+    
     

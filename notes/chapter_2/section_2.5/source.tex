@@ -63,5 +63,19 @@
         \lim_{t \rightarrow \infty} y(t) = K
     \end{equation*}
     hence $y = K$ is an \textbf{asymptotically stable solution}, and $y = 0$ is an \textbf{unstable equilibrium solution}.
-    
-    
+    \newline
+    \textbf{A Critical Threshold}. Consider the equation
+    \begin{equation*}
+        \frac{dy}{dt} = -r(1 - \frac{y}{T})y
+    \end{equation*}
+    The function $dy/dt = f(y)$ is a parabola with zeros at $y = 0$ and $y = K$ opening up. For $0 < y < T$, $f(y) < 0$. Hence $T$ is the \textbf{threshold level} since no growth occurs below it. Above $T$, $y$ grows indefinitely. It becomes unbounded in a finite amount of time $t*$.
+    \begin{equation*}
+        t* = \frac{1}{r}\ln\frac{y_0}{y_0 - T}
+    \end{equation*}
+    which we find by setting the denominator of the solution to 0.
+    \newline
+    \textbf{Logistic Growth with a Threshold.} This equation can be modified so that unbounded growth does not occur when $y$ is above $T$. We need another factor that makes $dy/dt$ negative when $y$ is large.
+    \begin{equation*}
+        \frac{dy}{dt} = -r(1 - \frac{y}{T})(1 - \frac{y}{K})y
+    \end{equation*}
+    This pulls $dy/dt$ back down after a certain point. $f(y)$ is a cubic function now. The solutions of the equation are similar to the equations with unbounded growth except when $y > T$, $y$ will approach $K$.

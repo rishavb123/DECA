@@ -1,0 +1,100 @@
+\section{Exact Equations and Integrating Factors}
+    If we have a differential equation:
+    \begin{equation*}
+        M(x, y) + N(x, y)y' = 0
+    \end{equation*}
+    find a function $\psi(x, y)$ such that
+    \begin{equation*}
+        \pdv{\psi}{x}\;(x, y) = M(x, y), \qquad \pdv{\psi}{y}\;(x, y) = N(x, y)
+    \end{equation*}
+    Then,
+    \begin{equation*}
+        M(x, y) + N(x, y)y' = \pdv{\psi}{x} (x, y) + \pdv{\psi}{y} (x, y) \frac{dy}{dx} = \frac{d}{dx}\psi[x, \phi(x)] = 0
+    \end{equation*}
+    where $y = \phi(x)$ is the solution. By integration we get
+    \begin{equation*}
+        \psi(x, y) = c
+    \end{equation*}
+    which implicitly defines the solutions for the original differential equation. In this case the original differential equation is an \textbf{exact} differential equation.
+    \begin{theorem}
+        Let the functions $M, N, M_y, N_x$, where the subscripts denote partial derivatives be continuous in the rectangular region $R: \alpha < x < \beta, \gamma < y < \delta$. The differential equation
+        \begin{equation*}
+            M(x, y) + N(x, y)y' = 0
+        \end{equation*}
+        is an exact differential equation in $R$ if and only if
+        \begin{equation*}
+            M_y(x, y) = N_x(x, y)
+        \end{equation*}
+        for each point in $R$. That is, there exists a function $\psi$ such that
+        \begin{equation*}
+            \pdv{\psi}{x}\;(x, y) = M(x, y), \qquad \pdv{\psi}{y}\;(x, y) = N(x, y)
+        \end{equation*}
+        if and only if $M$ and $N$ satisfy that constraint.
+    \end{theorem}
+    \begin{proof}
+        Computing $M_y$ and $N_x$, we get,
+        \begin{equation*}
+            M_y(x, y) = \psi_{xy}(x, y), \qquad M_y(x, y) = \psi_{yx}(x, y)
+        \end{equation*}
+        and $\psi_{xy}(x, y) = \psi_{yx}(x, y)$ so if the equation is exact, then $M_y(x, y) = N_x(x, y)$. Now, we must prove the other way around.
+        \newline \indent
+        We need to find a $\psi$ so that
+        \begin{equation*}
+            \psi_x\;(x, y) = M(x, y), \qquad \psi_y\;(x, y) = N(x, y)
+        \end{equation*}
+        By integrating the first half the the equation above we get
+        \begin{equation*}
+            \psi(x, y) = Q(x, y) + h(y)
+        \end{equation*}
+        where
+        \begin{equation*}
+            Q(x, y) = \int_{x_0}^x M(s, y) ds
+        \end{equation*}
+        and $h(y)$ acts as a constant (with respect to $x$). Now we choose $h$ to satisfy
+        \begin{equation*}
+            \psi_y(x, y) = \pdv{Q}{y}\;(x, y) + h'(y) = N(x, y)
+        \end{equation*}
+        So we have 
+        \begin{equation*}
+            h'(y) = N(x, y) - \pdv{Q}{y}\;(x, y)
+        \end{equation*}
+        For this equation to be true the right side of the equation must be only a function of $y$, so the partial derivative with respect to $x$ should be 0. 
+        \begin{equation*}
+            \pdv{N}{x}\;(x, y) - \pdv{x}\pdv{Q}{y}\;(x, y) = 0
+        \end{equation*}
+        \begin{equation*}
+            \pdv{N}{x}\;(x, y) - \pdv{y}\pdv{Q}{x}\;(x, y) = 0
+        \end{equation*}    
+        And we know $\pdv{Q}{x}\;(x, y) = \pdv{\psi}{x}\;(x, y) = M(x, y)$. So,
+        \begin{equation*}
+            \pdv{N}{x}\;(x, y) - \pdv{M}{y}\;(x, y) = 0
+        \end{equation*}    
+        and 
+        \begin{equation*}
+            M_y(x, y) = N_x(x, y)
+        \end{equation*}
+        $h(y)$ can be found be integrating $N(x, y) - \pdv{Q}{y}\;(x, y)$.
+    \end{proof}
+    \textbf{Integrating Factors.} Sometimes if an equation is not exact, then it is possible to use an integrating factor $\mu(x, y)$ to make it exact. If we have,
+    \begin{equation*}
+        M(x, y) + N(x, y)y' = 0
+    \end{equation*}
+    and we multiply it by $\mu(x, y)$,
+    \begin{equation*}
+        \mu(x, y)M(x, y) + \mu(x, y)N(x, y)y' = 0
+    \end{equation*}
+    By Theorem 2.6.1, this equation is exact if and only if
+    \begin{equation*}
+        (\mu M)_y = (\mu N)_x
+    \end{equation*}
+    By the product rule, we get another differential equation
+    \begin{equation*}
+        M\mu_y - N\mu_x + (M_y - N_x)\mu = 0
+    \end{equation*}
+    Solving this gets you $\mu(x, y)$, which will make the original equation exact, so you could solve that too.
+    \newline \indent
+    If $\mu(x, y) = \mu(x)$ is only a function of $x$, we can set $\mu_x = \frac{d\mu}{dx}$ and $\mu_y = 0$. So we get
+    \begin{equation*}
+        \frac{d\mu}{dx} = \frac{M_y - N_x}{N}\mu
+    \end{equation*}
+    which is both linear and separable. 

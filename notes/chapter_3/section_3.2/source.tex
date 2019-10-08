@@ -1,2 +1,127 @@
 \section{Solutions of Linear Homogeneous Equations; the Wronskian}
-    Test
+    Let $p$ and $q$ be continuous functions on an open interval $I = (\alpha, \beta)$ where $\alpha$ and $\beta$ can be anything including $\infty$. Then, for any function $\phi$ that is twice differentiable on $I$,
+    \begin{equation*}
+        L[\phi] = \phi'' + p\phi' + q\phi
+    \end{equation*}
+    So,
+    \begin{equation*}
+        L[\phi](t) = \phi''(t) + p(t)\phi'(t) + q(t)\phi(t)
+    \end{equation*}
+    The operator $L$ is often written as $L = D^2 + pD + q$, where $D$ is the derivative operator.
+    \newline \indent
+    So the initial value problem is
+    \begin{equation*}
+        L[y] = y'' + p(t)y' + q(t)y
+    \end{equation*}
+    \begin{equation*}
+        y(t_0) = y_0 \qquad y'(t_0) = y'_0
+    \end{equation*}
+    \begin{theorem}
+        Consider the initial value problem
+        \begin{equation*}
+            y'' + p(t)y' + q(t)y = g(t), \qquad y(t_0) = y_0, \qquad y'(t_0) = y'_0
+        \end{equation*}
+        where $p$, $q$, and $g$ are continuous on an open interval $I$ that contains the point $t_0$. Then there is exactly one solution $y = \phi(t)$ of this problem, and the solution exists throughout the interval $I$.
+    \end{theorem}
+    This theorem says three things:
+    \begin{enumerate}
+        \item A solution \textit{exists}
+        \item The solution is \textit{unique}
+        \item The solution $\phi$ is defined \textit{throughout the interval} $I$ where the coefficients are continuous and is at least twice differentiable there.
+    \end{enumerate}
+    \indent For most second order problems, we cannot write a useful expression for the solution. This is a major difference between first order and second order linear equations.
+    \begin{theorem}[Principle of Superposition]
+        If $y_1$ and $y_2$ are two solutions fo the differential equation,
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        then the linear combination $c_1y_1 + c_2y_2$ is also a solution for any values of the constants $c_1$ and $c_2$
+    \end{theorem}
+    \begin{proof}
+        To prove this, we substitute $$y = c_1y_1(t) + c_2y_2(t)$$ for $y$.
+        \begin{align*}
+            L[c_1y_1 + c_2y_2] = [c_1y_1 + c_2y_2]'' + p[c_1y_1 + c_2y_2]' + q[c_1y_1 + c_2y_2] \\
+            = c_1y_1'' + c_2y_2'' + c_1py_1' + c_2py_2' + c_1qy_1 + c_2qy_2 \\
+            = c_1[y_1'' + py_1' + qy_1] + c_2[y_2'' + py_2' + qy_2] \\
+            = c_1L[y_1] + c_2L[y_2] = c_1(0) + c_2(0) = 0
+        \end{align*}
+        since $L[y_1] = L[y_2] = 0$ because they are both solutions.
+    \end{proof}
+    This theorem essentially states that beginning with two solutions, we can construct an infinite family of solutions. Now, to address if all solutions of the equation are included in this family. First, we find constants to match our intial values.
+    $$c_1y_1(t_0) + c_2y_2(t_0) = y_0$$
+    $$c_1y_1'(t_0) + c_2y_2'(t_0) = y_0'$$
+    which can be written as
+    \begin{equation*}
+        \begin{bmatrix}
+            y_1(t_0) & y_2(t_0) \\
+            y_1'(t_0) & y_2'(t_0)
+        \end{bmatrix}
+        \begin{bmatrix}
+            c_1 \\
+            c_2
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            y_0 \\
+            y_0'
+        \end{bmatrix}
+    \end{equation*}
+    The determinant of the coefficients of the system
+    \begin{equation*}
+        W = \begin{vmatrix}
+            y_1(t_0) & y_2(t_0) \\
+            y_1'(t_0) & y_2'(t_0)
+        \end{vmatrix} = y_1(t_0)y_2'(t_0) - y_1'(t_0)y_2(t_0)
+    \end{equation*}
+    If $W \neq 0$,
+    \begin{equation*}
+        c_1 = \frac{y_0y_2'(t_0) - y_0'y_2(t_0)}{y_1(t_0)y_2'(t_0) - y_1'(t_0)y_2(t_0)}, \qquad c_2 = \frac{-y_0y_1'(t_0) + y_0'y_1(t_0)}{y_1(t_0)y_2'(t_0) - y_1'(t_0)y_2(t_0)}
+    \end{equation*}
+    or 
+    \begin{equation*}
+        c_1 = \frac{
+            \begin{vmatrix}
+                y_0 & y_2(t_0) \\
+                y_0' & y_2'(t_0)
+            \end{vmatrix}
+        }{
+            \begin{vmatrix}
+                y_1(t_0) & y_2(t_0) \\
+                y_1'(t_0) & y_2'(t_0)
+            \end{vmatrix}
+        }, \qquad 
+        c_2 = \frac{
+            \begin{vmatrix}
+                y_1(t_0) & y_0 \\
+                y_1'(t_0) & y_0'
+            \end{vmatrix}
+        }{
+            \begin{vmatrix}
+                y_1(t_0) & y_2(t_0) \\
+                y_1'(t_0) & y_2'(t_0)
+            \end{vmatrix}
+        }
+    \end{equation*}
+    These values of $c_1$ and $c_2$ satisfy the initial conditions and differential equation. But this is only if $W \neq 0$. If $W = 0$ then there are no solutions unless the numerators are equal to 0. Since otherwise the initial cannot be satisfied no matter what constants are chosen.
+    \newline \indent
+    The determinant $W$ is called the \textbf{Wronskian determinant}, or simply the \textbf{Wronskian}, of the solutions $y_1$ and $y_2$. Sometimes we use $W(y_1, y_2)(t_0)$.
+    \begin{theorem}
+        Suppose that $y_1$ and $y_2$ are two solutions of
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        and that the initial conditions
+        \begin{equation*}
+            y(t_0) = y_0 \qquad y'(t_0) = y'_0
+        \end{equation*}
+        are assigned. Then it is always possible to choose the constants $c_1, c_2$ so that 
+        \begin{equation*}
+            y = c_1y_1(t) + c_2y_2(t)
+        \end{equation*}
+        satisfies the differential equation and the initial conditions if and only if the Wronskian
+        \begin{equation*}
+            W = y_1y_2' - y_1'y_2
+        \end{equation*}
+        is not zero at $t_0$.
+    \end{theorem}
+    

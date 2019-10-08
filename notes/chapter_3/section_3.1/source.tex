@@ -1,2 +1,75 @@
 \section{Homogeneous Equations with Constant Coefficients}
-    Test
+    A second order ordinary differential equation has the form
+    \begin{equation*}
+        \frac{d^2y}{dt^2} = f(t, y, \frac{dy}{dt})
+    \end{equation*}
+    This equation is said to be linear if it has the form
+    \begin{equation*}
+        f(t, y, \frac{dy}{dt}) = g(t) - p(t)\frac{dy}{dt} - q(t)y
+    \end{equation*}
+    that is, if $f$ is \textbf{linear} in $y$ and $dy/dt$. It can also be written as
+    \begin{equation*}
+        y'' + p(t)y' + q(t)y = g(t)
+    \end{equation*}
+    or
+    \begin{equation*}
+        P(t)y'' + Q(t)y' + R(t)y = G(t)
+    \end{equation*}
+    If an equation is not of this form, it is \textbf{nonlinear}. 
+    \newline \indent
+    An initial value problem consists of a differential equation together with a pair of initial conditions
+    \begin{equation*}
+        y(t_0) = y_0 \qquad y'(t_0) = y'_0
+    \end{equation*}
+    where $y_0$ and $y'_0$ are given numbers prescribing values for $y$ and $y'$ at the initial point $t_0$.
+    \newline \indent
+    A second order linear equation is said to be \textbf{homogeneous} if the term $g(t)$ or $G(t)$, depending on which form its in, is 0 for all $t$. Otherwise, the equation is \textbf{nonhomogeneous}. As a result, $g(t)$ or $G(t)$ is sometimes called the nonhomogeneous term. Homogeneous equations can be written as
+    \begin{equation*}
+        P(t)y'' + Q(t)y' + R(t)y = 0
+    \end{equation*}
+    If the functions $P$, $Q$, and $R$ are constants, we have
+    \begin{equation*}
+        ay'' + by' + cy = 0
+    \end{equation*}
+    To solve this, we start by seeking exponential solutions of the form $y = e^{rt}$, where $r$ is a parameter to be determined. Then it follows that $y' = re^{rt}$ and $y'' = r^2e^{rt}$. So,
+    \begin{equation*}
+        (ar^2 + br + c)e^{rt} = 0
+    \end{equation*}
+    Since $e^{rt} \neq 0$
+    \begin{equation*}
+        ar^2 + br + c = 0
+    \end{equation*}
+    This is called the \textbf{characteristic equation}, and the roots of this correspond to $r$ in the solution $y = e^{rt}$. We assume two real unique roots $r_1$ and $r_2$, so $y = e^{r_1t}$ and $y = e^{r_2t}$ are solutions. Not only this, but also any linear combination of the two
+    \begin{equation*}
+        y = c_1e^{r_1t} + c_2e^{r_2t}
+    \end{equation*}
+    is also a solution. To verify this, we differentiate:
+    \begin{equation*}
+        y' = c_1r_1e^{r_1t} + c_2r_2e^{r_2t}
+    \end{equation*}
+    \begin{equation*}
+        y'' = c_1r_1^2e^{r_1t} + c_2r_2^2e^{r_2t}
+    \end{equation*}
+    Substituting it back in,
+    \begin{equation*}
+        ay'' + by' + cy = c_1(ar_1^2 + br_1 + c)e^{r_1t} + c_2(ar_2^2 + br_2 + c)e^{r_2t}
+    \end{equation*}
+    the terms in the parentheses on the right are 0 since $r_1$ and $r_2$ are roots of the characteristic equation. 
+    \newline \indent  
+    Using the initial conditions
+    \begin{equation*}
+        y(t_0) = y_0 \qquad y'(t_0) = y'_0
+    \end{equation*}
+    \begin{equation*}
+        c_1e^{r_1t_0} + c_2e^{r_2t_0} = y_0
+    \end{equation*}
+    \begin{equation*}
+        c_1r_1e^{r_1t_0} + c_2r_2e^{r_2t_0} = y'_0
+    \end{equation*}
+    \begin{equation*}
+        c_1 = \frac{y'_0 - y_0r_2}{r_1 - r_2}e^{-r_1t_0}, \qquad c_2 = \frac{y_0r_1 - y_0'}{r_1 - r_2}e^{-r_2t_0}
+    \end{equation*}
+    $r_1 - r_2 \neq 0$ since we established that the roots are different.
+    \newline \indent
+    It can be shown that the solutions of our homogeneous initial value problem are the same solutions as a nonhomogeneous one. So, these solutions are the general solution for the second order linear equations with constants.
+    

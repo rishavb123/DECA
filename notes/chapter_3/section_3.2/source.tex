@@ -124,4 +124,33 @@
         \end{equation*}
         is not zero at $t_0$.
     \end{theorem}
-    
+    \begin{theorem}
+        Suppose that $y_1$ and $y_2$ are two solutions of the differential equation,
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        Then the family of solutions
+        \begin{equation*}
+            y = c_1y_1(t) + c_2y_2(t)
+        \end{equation*}
+        with arbitrary coefficients $c_1$ and $c_2$ includes every solution of the equation if and only if there is a point $t_0$ where the Wronskian of $y_1$ and $y_2$ is not zero.
+    \end{theorem}
+    \begin{proof}
+        Let $\phi$ be any arbitrary solution of the equation. To prove this, we show that $\phi$ as a part of the family $c_1y_1(t) + c_2y_2(t)$. Let $t_0$ be a point be point where the Wronskian is nonzero. So,
+        \begin{equation*}
+            y_0 = \phi(t_0), \qquad y_0' = \phi'(t_0)
+        \end{equation*}
+        Now, we consider the initial value problem
+        \begin{equation*}
+            y'' + p(t)y' + q(t)y = 0, \quad y(t_0) = y_0, \quad y'(t_0) = y'_0
+        \end{equation*}
+        Since the Wronskian is nonzero, it is possible to choose a $c_1$ and $c_2$, so that 
+        \begin{equation*}
+            \phi(t) = c_1y_1(t) + c_2y_2(t) 
+        \end{equation*}
+        so $\phi$ is included in the family. If there is no point $t_0$ where the Wronskian is nonzero, there are values $y_0$ and $y_0'$ that the system has no solutions for $c_1$ and $c_2$. Select a pair of such values and choose the solution $\phi(t)$ that satisfies the initial condition. So, if the $W = 0$, then there exists a solution that does not fit in the family.
+    \end{proof}
+    \begin{equation*}
+        y = c_1y_1(t) + c_2y_2(t)
+    \end{equation*}
+    with arbitrary constant coefficients is the \textbf{general solution}. And the solutions $y_1$ and $y_2$ are said to form a \textbf{fundamental set of solutions} if and only if their Wronskian is nonzero.

@@ -154,3 +154,70 @@
         y = c_1y_1(t) + c_2y_2(t)
     \end{equation*}
     with arbitrary constant coefficients is the \textbf{general solution}. And the solutions $y_1$ and $y_2$ are said to form a \textbf{fundamental set of solutions} if and only if their Wronskian is nonzero.
+    \begin{theorem}
+        Consider the differential equation
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        whose coefficients $p$ and $q$ are continuous on some open interval $I$. Choose some point $t_0$ in $I$. Let $y_1$ be the solution of the equation that also satisfies the initial conditions
+        $$y(t_0) = 1, \qquad y'(t_0) = 0$$
+        and let $y_2$ be the solutions of the equation that satisfies the initial conditions
+        $$y(t_0) = 0, \qquad y'(t_0) = 1$$
+        Then $y_1$ and $y_2$ form a fundamental set of solutions.
+    \end{theorem}
+    \begin{proof}
+        The \textit{existence} of $y_1$ and $y_2$ is ensured by the existence part of theorem 3.2.1, and they form a fundamental set of solutions since
+        \begin{equation*}
+            W(y_1, y_2)(t_0) = \begin{vmatrix}
+                y_1(t_0) & y_2(t_0) \\
+                y_1'(t_0) & y_2'(t_0)
+            \end{vmatrix} = \begin{vmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{vmatrix} = 1 \neq 0
+        \end{equation*}
+    \end{proof}
+    \begin{theorem}
+        Consider the differential equation
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        where $p$ and $q$ are continuous real-valued functions. If $y = u(t) + iv(t)$ is a complex-valued solution, then its real part $u$ and imaginary part $v$ are both also solutions.
+    \end{theorem}
+    \begin{proof}
+        To prove this we substitute $y = u(t) + iv(t)$ in $L[y]$,
+        \begin{align*}
+            L[y] = u''(t) + iv''(t) + p(t)[u'(t) + iv'(t)] + q(t)[u(t) + iv(t)] \\
+            = u''(t) + p(t)u'(t) + q(t)u(t) + i[v''(t) + p(t)v'(t) + q(t)v(t)] \\
+            = L[u(t)] + iL[v(t)] = 0
+        \end{align*}
+        For a complex-number to be zero both the real and imaginary parts have to be zero, so both $L[u(t)] = 0$ and $L[v(t)] = 0$, and are both solutions.
+    \end{proof}
+    Also, the complex conjugate $\bar{y}$ of a solution $y$ is also a solution since it is a linear combination of $u(t)$ and $v(t)$.
+    \begin{theorem}[Abel's Theorem]
+        If $y_1$ and $y_2$ are solutions to the differential equation
+        \begin{equation*}
+            L[y] = y'' + p(t)y' + q(t)y = 0
+        \end{equation*}
+        where $p$ and $q$ are continuous on an open interval $I$, then the Wronskian $W$ is given by
+        \begin{equation*}
+            W(y_1, y_2)(t) = c\exp[-\int p(t)dt]
+        \end{equation*}
+        where $c$ is a constant dependent on $y_1$ and $y_2$ but not $t$. So, $W$ is zero for all $t \in I$ if $c = 0$, else it is nonzero for all $t \in I$.         
+    \end{theorem}
+    \begin{proof}
+        We know
+        $$y_1'' + p(t)y_1' + q(t)y_1 = 0$$
+        $$y_2'' + p(t)y_2' + q(t)y_2 = 0$$
+        if we multiply the first equation by $-y_2$ and the second with $y_1$,a dn add the resulting equations, we get
+        $$(y_1y_2'' - y_1''y_2) + p(t)(y_1y_2' - y_1'y_2) = 0$$
+        We see that 
+        $$W' = y_1y_2'' - y_1''y_2$$
+        so
+        $$W' + p(t)W = 0$$
+        which we can solve to get
+        \begin{equation*}
+            W(y_1, y_2)(t) = c\exp[-\int p(t)dt]
+        \end{equation*}
+        and since the exponential function cannot be 0, $W = 0$ if and only if $c = 0$.
+    \end{proof}

@@ -1,2 +1,52 @@
 \section{Complex Roots of the Characteristic Equation}
-    Test
+    We continue our discussion of the equation
+    \begin{equation*}
+        ay'' + by' + cy = 0
+    \end{equation*}
+    where $a$, $b$, and $c$ are given real numbers. If we seek solutions of the form $y = e^{rt}$, the $r$ must be a root of the characteristic equation
+    \begin{equation*}
+        ar^2 + br + c = 0
+    \end{equation*}
+    We previously showed that if $r_1$ and $r_2$ are real and different, which occurs if $b^2 - 4ac > 0$, then the general solution of our differential equation is
+    \begin{equation*}
+        y = c_1e^{r_1t} + c_2e^{r_2t}
+    \end{equation*}
+    Now if $b^2 - 4ac < 0$, then the roots of the characteristic equation are conjugate complex numbers,
+    $$r_1 = \lambda + i\mu, \qquad r_2 = \lambda - i\mu$$
+    where $\lambda$ and $\mu$ are real. The corresponding expressions for $y$ are
+    $$y_1(t) = \exp[(\lambda + i\mu)t], \qquad y_2(t) = \exp[(\lambda - i\mu)t]$$
+    What does it mean to raise the number $e$ to a complex power.
+    \textbf{Euler's Formula.} A Taylor series for $e^t$ about $t=0$ is
+    $$e^t = \sum_{n=0}^\infty \frac{t^n}{n!}$$
+    If we replace $t$ with $it$,
+    \begin{align*}
+        e^{it} = \sum_{n=0}^\infty \frac{i^nt^n}{n!} \\
+        = \sum_{n=0}^\infty \frac{(-1)^nt^{2n}}{(2n)!} + i\sum_{n=0}^\infty \frac{(-1)^{n-1}t^{2n-1}}{(2n-1)!}
+    \end{align*}
+    The real portion of the expression is the Taylor expansion for $\cos t$, and the imaginary part is the Taylor expansion for $\sin t$, so
+    $$e^{it} = \cos t + i\sin t$$
+    which is known as Euler's formula.
+    $$e^{-it} = \cos t - i\sin t$$
+    since $\cos(-t) = \cos t$ and $\sin(-t) = -\sin t$. In general if $t$ is replaced with $\mu t$
+    $$e^{i\mu t} = \cos \mu t + i\sin \mu t$$
+    Now if we have a complex number $\lambda + i\mu$
+    \begin{align*}
+        e^{(\lambda + i\mu)t} = e^{\lambda t}e^{i\mu t}
+        = e^{\lambda t}(\cos \mu t + i\sin \mu)
+        = e^{\lambda t}\cos \mu t + ie^{\lambda t}\sin \mu t
+    \end{align*}
+    \begin{equation*}
+        \frac{d}{dt}(e^{rt}) = re^{rt}
+    \end{equation*}
+    still holds true with complex $r$s and we can verify it using the definition above.
+    \newline
+    \textbf{Complex Roots; The General Case.} If we have two solutions for $y$, $e^{\lambda t}\cos \mu t \pm ie^{\lambda t}\sin \mu t$, we can use the real and imaginary parts as a fundamental set of solutions since
+    \begin{equation*}
+        W(u, v)(t) = \mu e^{2\lambda t}
+    \end{equation*}
+    by direct computation. $W \neq 0$ as long as $\mu \neq 0$, so $u$ and $v$ form a fundamental set. If $\mu$ is zero then the roots are real and we already talked about that. So the general solution of the original equation is
+    \begin{equation*}
+        y = c_1e^{\lambda t}\cos \mu t + c_2 e^{\lambda t} \sin \mu t
+    \end{equation*}
+    
+    

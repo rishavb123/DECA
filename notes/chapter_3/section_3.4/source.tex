@@ -1,0 +1,50 @@
+\section{Repeated Roots; Reduction of Order}
+    Consider the differential equation
+    $$ay'' + by' + cy = 0$$
+    when the roots of the characteristic equation
+    $$ar^2 + br + c = 0$$
+    are equal. So, $b^2 - 4ac = 0$. Then,
+    $$r_1 = r_2 = -b/2a$$
+    So one solution for the equation is
+    $$y_1(t) = e^{-bt/2a}$$
+    Finding a second solution is not obvious. We start with the assumption that
+    $$y = v(t)y_1(t) = v(t)e^{-bt/2a}$$
+    So,
+    $$y' = v'(t)e^{-bt/2a} - \frac{b}{2a}v(t)e^{-bt/2a}$$
+    $$y'' = v''(t)e^{-bt/2a} - \frac{b}{a}v'(t)e^{-bt/2a} + \frac{b^2}{4a^2}v(t)e^{-bt/2a}$$
+    Plugging these into our original differential equation
+    \begin{equation*}
+        \big\{ a\big [v''(t) - \frac{b}{a}v'(t) + \frac{b^2}{4a^2}v(t) \big] + b\big [ v'(t) - \frac{b}{2a}v(t) \big ] + cv(t) \big\}e^{-bt/2a} = 0
+    \end{equation*}
+    $$a\big [v''(t) - \frac{b}{a}v'(t) + \frac{b^2}{4a^2}v(t) \big] + b\big [ v'(t) - \frac{b}{2a}v(t) \big ] + cv(t) = 0$$
+    $$av''(t) + (-b + b)v'(t) + \big(\frac{b^2}{4a} - \frac{b^2}{2a} + c \big)v(t) = 0$$
+    $-b + b$ is obviously 0. The coefficient of the last term (let us call it $z$) is also 0 since $-4az = b^2 - 4ac = 0$. So,
+    $$v''(t) = 0$$
+    $$v'(t) = c_2$$
+    $$v(t) = c_1 + c_2t$$
+    So we choose 0 and 1 and we have
+    $$y = c_1e^{-bt/2a} + c_2te^{-bt/2a}$$
+    and y is a linear combination of 
+    $$y_1(t) = e^{-bt/2a}, \qquad y_2(t) = te^{-bt/2a} $$
+    The Wronskian of these two solutions is
+    \begin{equation*}
+        W(y_1, y_2)(t) = \begin{vmatrix}
+            e^{-bt/2a} & te^{-bt/2a} \\
+            -\frac{b}{2a}e^{-bt/2a} & (1 - \frac{bt}{2a})e^{-bt/2a}
+        \end{vmatrix} = e^{-bt/2a}
+    \end{equation*}
+    which is never zero so these solutions form a fundamental set.
+    \newline
+    \textbf{Reduction of Order.} If we have an equation
+    $$y'' + p(t)y' + q(t)y = 0$$
+    and we have a solution $y_1$, to find a second solution, let
+    $$y = v(t)y_1(t)$$
+    then,
+    $$y' = v'(t)y_1(t) + v(t)y_1'(t)$$
+    and
+    $$y'' = v''(t)y_1(t) + 2v'(t)y_1'(t) + v(t)y_1''(t)$$
+    Substituting for $y$, $y'$, and $y''$, and rearranging
+    $$y_1v'' + (2y_1' + py_1)v' + (y_1'' py_1' + qy_1)v = 0$$
+    Since $y_1$ is a solution of the equation, the coefficient of $v$ is 0, so 
+    $$y_1v'' + (2y_1' + py_1)v' = 0$$
+    This is a first order equation of $v'$. Once $v'$ is found, we can integrate to find $v$ and now we have our second solution $y_2 = vy_1$.

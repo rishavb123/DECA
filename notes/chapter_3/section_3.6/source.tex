@@ -1,0 +1,46 @@
+\section{Variation of Parameters}
+    Consider
+    \begin{equation*}
+        y'' + p(t)y' + q(t)y = g(t) 
+    \end{equation*}
+    where $p$, $q$, and $g$ are given continuous functions. To start we know the general solution of the corresponding homogeneous equation
+    \begin{equation*}
+        y'' + p(t)y' + q(t)y = 0
+    \end{equation*}
+    is
+    \begin{equation*}
+        y_c(t) = c_1y_1(t) + c_2y_2(t)
+    \end{equation*}
+    The crucial idea of this method is to replace the constants $c_1$ and $c_2$ with functions $u_1(t)$ and $u_2(t)$; thus we have
+    $$y=u_1(t)y_1(t) + u_2(t)y_2(t)$$
+    and
+    $$y' = u_1'(t)y_1(t) + u_1(t)y'_1(t) + u_2'(t)y_2(t) + u_2(t)y_2'(t)$$
+    We now set the terms involving $u_1'(t)$ and $u_2'(t)$ to zero:
+    $$u_1'(t)y_1(t) + u_2'(t)y_2(t) = 0$$
+    so
+    $$y' = u_1(t)y'_1(t) + u_2(t)y_2'(t)$$
+    and
+    $$y'' = u'_1(t)y_1'(t) + u_1(t)y''_1(t) + u'_2(t)y_2'(t) + u_2(t)y''_2(t)$$
+    Now we substitute $y$, $y'$ and $y''$ and rearrange
+    \begin{align*}
+        u_1(t)[y''_1(t) + p(t)y'_1(t) + q(t)y_1(t)] \\
+        + u_2(t)[y''_2(t) + p(t)y'_2(t) + q(t)y_2(t)] \\
+        + u'_1(t)y'_1(t) + u'_2(t)y'_2(t) = g(t)
+    \end{align*}
+    The expressions in the square brackets are zero since both $y_1$ and $y_2$ are solutions to the homogeneous equation.
+    $$u'_1(t)y'_1(t) + u'_2(t)y'_2(t) = g(t)$$
+    and
+    $$u_1'(t)y_1(t) + u_2'(t)y_2(t) = 0$$
+    form a system of two linear algebraic equations for the derivatives $u'_1(t)$ and $u'_2(t)$ of the unknown functions. By solving we get
+    $$u'_1(t) = -\frac{y_2(t)g(t)}{W(y_1, y_2)(t)}, \qquad u'_2(t) = -\frac{y_1(t)g(t)}{W(y_1, y_2)(t)}$$
+    By integrating we get
+    $$u_1(t) = -\int\frac{y_2(t)g(t)}{W(y_1, y_2)(t)}ds, \qquad u_2(t) = -\int\frac{y_1(t)g(t)}{W(y_1, y_2)(t)}ds$$
+    \begin{theorem}
+        If the functions $p$, $q$, and $g$ are continuous on an open interval $I$, and if the functions $y_1$ and $y_2$ are a fundamental set of solutions of the homogeneous equation corresponding to the nonhomogeneous equation
+        $$y'' + p(t)y' + q(t)y = g(t)$$
+        then a particular solution is
+        $$Y(t) = -y_1(t)\int_{t_0}^t\frac{y_2(t)g(t)}{W(y_1, y_2)(t)}ds + y_2(t)\int_{t_0}^t\frac{y_1(t)g(t)}{W(y_1, y_2)(t)}ds$$
+        where $t_0$ is any conveniently chosen point in $I$. The general solution is 
+        $$y = c_1y_1(t) + c_2y_2(t) + Y(t)$$
+    \end{theorem}
+    The difficulties of using this is evaluating the integral and finding the fundamental set of the corresponding homogeneous equation.

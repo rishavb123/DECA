@@ -1,19 +1,10 @@
-\section{Homogeneous Equations with Constant Coefficients}
-    Consider the $n$th order linear homogeneous differential equation
-    $$L[y] = a_0y^{(n)} + a_1y^{(n-1)} + \dots + a_{n-1}y' + a_ny = 0$$
-    $$L[e^{rt}] = e^{rt}(a_0r^n + a_1r^{n-1} + \dots + a_{n-1}r + a_n) = e^{rt}Z(r)$$
-    for all $r$, where
-    $$Z(r) = a_0r^n + a_1r^{n-1} + \dots + a_{n-1}r + a_n$$
-    For those values of $r$ for which $Z(r) = 0$, it follows that $L[e^{rt}] = 0$ and $y = e^{rt}$ is a solution. The polynomial $Z(r)$ is called the \textbf{characteristic polynomial}, and the equation $Z(r) = 0$ is the \textbf{characteristic equation} of the differential equation. By factoring, we get
-    $$Z(r) = a_0(r - r_1)(r - r_2)\dots(r-r_n)$$
-    where $r_1,r_2,\dots,r_n$ are the zeroes, some of which may be equal.
-    \newline
-    \textbf{Real and Unreal Roots.} If the roots of the characteristic equation are real and no two are equation, then we have $n$ distinct solutions $e^{r_1t}, e^{r_2t},\dots,e^{r_nt}$. If these functions are linearly independent, then the general solution is
-    $$y = \sum_{i=0}^n c_ie^{r_it}$$
-    If the Wronskian determinant is non zero, then they are linearly independent.
-    \newline
-    \textbf{Complex Roots.} If the characteristic equation has complex roots, they must occur in conjugate pairs, $\lambda \pm i\mu$, since the coefficient $a_0, a_1,\dots, a_n$ are real numbers. The general solution is still of the same form, but we can replace $e^{(\lambda + i\mu)t}$ and $e^{(\lambda - i\mu)t}$ by
-    $$e^{\lambda t}\cos\mu t, \quad e^{\lambda t}\sin \mu t$$
-    \textbf{Repeated Roots.} If the roots of the characteristic equation are not distinct, then the solution is not as clear. If a root of $Z(r) = 0$, say $r = r_1$ has a multiplicity $s$ (occurs $s$ times), then
-    $$e^{r_1t}, te^{r_1t}, t^2e^{r_1t},\dots,t^{s-1}e^{r_1t}$$
-    are corresponding solutions. For a complex root, every time $\lambda + i\mu$ is repeated, $\lambda - i\mu$ must also repeat.
+\section{The Method of Undetermined Coefficients}
+    A particular solution $Y$ of the nonhomogeneous $n$th order linear equation with constant coefficients
+    $$L[y] = \sum_{i=0}^n a_iy^{(n - i)} = g(t)$$
+    can be obtained by the method of undetermined coefficients, provided that $g(t)$ is of an appropriate form.
+    \\
+    When the differential operator $L$ is applied to a polynomial $A_0t^m + A_1t^{m-1} + \dots + A_m$, an exponential function $e^{\alpha t}$, a sine function $\sin \beta t$, or a cosine function $\cos \beta t$, the result is a polynomial, an exponential function, or a linear combination of sine and cosine functions, respectively. If $g(t)$ is a sum of these functions, we can find a $Y(t)$ by choosing a suitable combination of these functions. The constants are determined by plugging in the assumed expression into the differential equation.
+    \\
+    If $g(t)$ is a sum of several terms, it is sometimes easier to split it up and then compute the solutions separately and then add them together for the particular solution.
+    \\
+    This method is easy, but it only works in specific cases (with constant coefficients).

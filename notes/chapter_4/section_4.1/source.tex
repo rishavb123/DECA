@@ -1,0 +1,48 @@
+\section{General Theory of $n$th Order Linear Equations}
+    An $n$th order linear differential equation is an equation of the form
+    $$P_0(t)\dfrac{d^ny}{dt^n} + P_1(t)\dfrac{d^{n - 1}y}{dt^{n - 1}} + \dots + P_{n-1}(t)\dfrac{dy}{dt} + P_n(t)y = G(t)$$
+    Dividing by $P_0(t)$,
+    $$L[y] = \dfrac{d^ny}{dt^n} + p_1(t)\dfrac{d^{n - 1}y}{dt^{n - 1}} + \dots + p_{n-1}(t)\dfrac{dy}{dt} + p_n(t)y = g(t)$$
+    The linear differential operator $L$ of order $n$ is defined above.
+    \newline \indent
+    For this, we have $n$ initial conditions,
+    $$y(t_0) = y_0 \; y'(t_0) = y_0' \; \dots \; y^(n-1)(t_0) = y_0^(n-1)$$
+    \begin{theorem}
+        If the functions $p_1,p_2,\dots,p_n,$ and $g$ are continuous on the open interval $I$, then there exists exactly one solution $y = \phi(t)$ of the differential equation that also satisfies the initial conditions, where $t_0$ is any point in $I$. This solution exists throughout the interval $I$.
+    \end{theorem}
+    \textbf{The Homogeneous Equation.} 
+    $$L[y] = y^{(n)} + p_1(t)y^{(n-1)} + \dots + p_{n-1}(t)y' + p_n(t)y = 0$$
+    If the functions $y_1, y_2, \dots, y_n$ are solutions of the previous equation, then it follows by direct computation that the linear combination
+    $$y = c_1y_1(t) + c_2y_2(t) + \dots + c_ny_n(t)$$
+    where $c_1,\dots,c_n$ are arbitrary constants, is also a solution. This family of solutions encompasses all the solutions for all initial conditions. For this the Wronskian
+    \begin{equation*}
+        W(y_1,\dots,y_n) = \begin{vmatrix}
+            y_1 & y_2 & \dots & y_n \\
+            y_1'' & y_2'' & \dots & y_n'' \\
+            \vdots & \vdots &  & \vdots \\
+            y_1^{(n-1)} & y_2^{(n-1)} & \dots & y_n^{(n-1)}
+        \end{vmatrix}
+    \end{equation*}
+    must be non zero at $t = t_0$.
+    \begin{theorem}
+        If the functions $p_1,p_2,\dots,p_n$ are continuous on the open interval $I$, if the functions $y_1,y_2,\dots,y_n$ are solutions, and if $W \neq 0$ for at least one point in $I$, then every solution can be expressed as a linear combination of the solutions $y_1, y_2,\dots,y_n$.
+    \end{theorem}
+    The set is called a \textbf{fundamental set of solutions} if the Wronskian is 0. The \textbf{general solution} is a linear combination of these with arbitrary constants.
+    \newline
+    \textbf{Linear Dependence and Independence. } $f_1,f_2,\dots, f_n$ are said to be \textbf{linearly dependent} if for a set of constants $k_1,k_2,\dots,k_n$, not all zero,
+    $$\sum_{i=0}^n k_if_i(t) = 0$$
+    These functions are \textbf{linearly independent} if they are not linearly dependent.
+    \begin{theorem}
+        If $y_1(t),y_2(t),\dots,y_n(t)$ is a fundamental set of solutions, then it is linearly independent. If a set is linearly independent, they form a fundamental set
+    \end{theorem}
+    \begin{proof}
+        Since its a fundamental set the Wronskian is nonzero, so the only solution of the linear dependence condition is if all the $k$s are zero, so it is linearly independent.
+    \end{proof}
+    \textbf{The Nonhomogeneous Equation. }
+    $$L[y] = g(t)$$
+    If $Y_1$ and $Y_2$ are two solutions of the nonhomogeneous equation, then
+    $$L[Y_1 - Y_2] = L[Y_1](t) - L[Y_2](t) = g(t) - g(t) = 0$$
+    hence the difference is a solution to the homogeneous equation. 
+    \newline \indent
+    So the general solution to a nonhomogeneous equation is
+    $$y = c_1y_1(t) + c_2y_2(t) + \dots + c_ny_n(t) + Y(t)$$

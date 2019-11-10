@@ -1,0 +1,36 @@
+\section{The Method of Undetermined Coefficients}
+    This for equations of the form
+    $$L[y] = y^{(n)} + p_1(t)y^{(n-1)} + \dots + p_{n-1}(t)y' + p_n(t)y = g(t)$$
+    The first step is to solve the corresponding homogeneous function. After this it is a general method that works for any function $g$. If we know a fundamental set of solutions, $y_1$, $y_2$, $\dots$, $y_n$, of the homogeneous equation, the general solution for the homogeneous equation is
+    $$y_c(t) = c_1y_1(t) + c_2y_2(t) + \dots + c_ny_n(t)$$
+    The method of variation of parameters for determining a particular solution rests on the possibility of determining $n$ functions $u_1$, $u_2$, $\dots$, $u_n$ such that $Y(t)$ is of the form
+    $$Y(t) = u_1(t)y_1(t) + u_2(t)y_2(t) + \dots + u_n(t)y_n(t)$$
+    Since we have $n$ functions to determine, we specify $n$ conditions. By differentiating,
+    $$Y' = (u_1y_1' + u_2y_2' + \dots + u_ny_n') + (u_1'y_1 + u_2'y_2 + \dots + u_n'y_n)$$
+    The first condition we impose is that
+    $$u_1'y_1 + u_2'y_2 + \dots + u_n'y_n = 0$$
+    so
+    $$Y' = u_1y_1' + u_2y_2' + \dots + u_ny_n'$$
+    We repeat this for more derivatives $Y''$, $\dots$, $Y^{(n-1)}$. After each differentiation we set equal to zero the sum of the terms involving derivatives of $u_1,\dots,u_n$. In this way we obtain $n-2$ further conditions.
+    $$u_1'y_1^{(m)} + u_2'y_2^{(m)} + \dots + u_n'y_n^{(m)} = 0, \quad m = 1,2,\dots, n-2$$
+    and using this we get
+    $$Y^{(m)} = u_1y_1^{(m)} + u_2y_2^{(m)} + \dots + u_ny_n^{(m)}, \quad m = 2,3,\dots, n-1$$
+    Then we differentiate one more time to get
+    $$Y^{(n)} = (u_1y_1^{(n)} + \dots + u_ny_n^{(n)}) + (u_1'y_1^{(n - 1)} + \dots + u_n'y_n^{(n - 1)})$$
+    To satisfy the original differential equation, substitute for $Y$ and its derivatives, then group the terms involving each of the functions $y_1,\dots,y_n$ and their derivatives. It then follows that most of the terms in the equation drop out because each of $y_1,\dots,y_n$ is a solution and therefore $L[y_i]=0, i=1,2,\dots,n$. The remaining terms yield the relation
+    $$u'_1y_1^{(n-1)} + u'_2y_2^{(n-1)} + \dots + u'_ny_n^{(n-1)} = g$$
+    These provide $n$ simultaneous linear nonhomogeneous algebraic equations for $u_1', u_2', \dots, u_n'$:
+    \begin{align*}
+        y_1u_1' + y_2u_2' + \dots + y_nu_n' = 0, \\
+        y_1'u_1' + y_2'u_2' + \dots + y_n'u_n' = 0, \\
+        y_1''u_1' + y_2''u_2' + \dots + y_n''u_n' = 0, \\
+        \vdots, \\
+        y_1^{(n-1)}u_1' + y_2^{(n-1)}u_2' + \dots + y_n^{(n-1)}u_n' = 0
+    \end{align*}
+    This system is a linear algebraic system for the unknown quantities $u_1', \dots, u_n'$. Using Cramer's rule, can write the solution of the system of equation in the form
+    $$u'_m(t) = \dfrac{g(t)W_m(t)}{W(t)}, \quad m = 1,2,\dots,n$$
+    Here $W(t) = W(y_1, y_2, \dots, y_n)(t)$, and $W_m$ is the determinant obtained from $W$ by replacing the $m$th column by the column $(0,0,\dots,1)$. With this notation a particular solution is given by
+    $$Y(t) = \sum_{m=1}^n y_m(t)\int_{t_0}^t \dfrac{g(s)W_m(s)}{W(s)}ds$$
+    where $t_0$ is arbitrary. Sometimes it can be simplified using Abel's identity
+    $$W(t) = W(y_1,\dots,y_n)(t) = c\exp[-\int p_1(t) dt]$$
+    The constant $c$ can be determined evaluating by $W$ at some convenient point.
